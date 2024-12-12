@@ -1,0 +1,17 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('install') {
+            steps {
+                sh "./install_httpd.sh"
+            }
+        }
+        
+         stage('grep') {
+            steps {
+                sh "./check_errors.sh"
+            }
+        }
+    }
+}
