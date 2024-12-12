@@ -4,13 +4,17 @@ pipeline {
     stages {
         stage('install') {
             steps {
-                sh "./install_httpd.sh"
+                sh """sudo chmod 755 install_httpd.sh
+                ./install_httpd.sh
+                """
             }
         }
         
          stage('grep') {
             steps {
-                sh "./check_errors.sh"
+                sh """sudo chmod 755 check_errors.sh
+                ./check_errors.sh
+                """
             }
         }
     }
